@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushroom predictions</title>
+</head>
+<body>
+    <form action="/predict" method="post">
+        {% for attribute, options in attributes.items() %}
+            <label for="{{ attribute }}">{{ attribute.replace('-', ' ').title() }}:</label>
+            <select id="{{ attribute }}" name="{{ attribute }}">
+                <option value="">Select</option>
+                {% for option_text, option_code in options.items() %}
+                    <option value="{{ option_code }}">{{ option_text }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+
+
+
